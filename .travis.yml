@@ -7,18 +7,18 @@ before_install:
 script:
     - docker run -e CI=true jasonosborne/complex-test npm test -- --coverage
 after_success:
-    -docker build -t $DOCKER_ID/multi-client ./client
-    -docker build -t $DOCKER_ID/multi-server ./server
-    -docker build -t $DOCKER_ID/nginx ./nginx
-    -docker build -t $DOCKER_ID/multi-worker ./worker
+    -docker build -t JASONOSBORNE/multi-client ./client
+    -docker build -t JASONOSBORNE/multi-server ./server
+    -docker build -t JASONOSBORNE/nginx ./nginx
+    -docker build -t JASONOSBORNE/multi-worker ./worker
 
     # Docker login & push to hub
 script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push multi-client
-    - docker push multi-nginx
-    - docker push multi-server
-    - docker push multi-worker
+    - docker push JASONOSBORNE/multi-client
+    - docker push JASONOSBORNE/multi-nginx
+    - docker push JASONOSBORNE/multi-server
+    - docker push JASONOSBORNE/multi-worker
 # deploy:
 #     edge: true
 #     provider: elasticbeanstalk
