@@ -13,7 +13,6 @@ after_success:
     - docker build -t jasonosborne/multi-worker ./worker
 
     # Docker login & push to hub
-script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     - docker push jasonosborne/multi-client
     - docker push jasonosborne/multi-nginx
