@@ -15,10 +15,10 @@ after_success:
     # Docker login & push to hub
 script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push $DOCKER_ID/multi-client
-    - docker push $DOCKER_ID/multi-nginx
-    - docker push $DOCKER_ID/multi-server
-    - docker push $DOCKER_ID/multi-worker
+    - docker push multi-client
+    - docker push multi-nginx
+    - docker push multi-server
+    - docker push multi-worker
 # deploy:
 #     edge: true
 #     provider: elasticbeanstalk
