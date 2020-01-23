@@ -9,7 +9,7 @@ script:
 after_success:
     - docker build -t jasonosborne/multi-client ./client
     - docker build -t jasonosborne/multi-server ./server
-    - docker build -t jasonosborne/nginx ./nginx
+    - docker build -t jasonosborne/multi-nginx ./nginx
     - docker build -t jasonosborne/multi-worker ./worker
 
     # Docker login & push to hub
